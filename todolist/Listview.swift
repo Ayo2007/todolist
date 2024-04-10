@@ -9,32 +9,28 @@ import SwiftUI
 struct ListView: View {
     
     //MARK: Stored properties
-    let reminder: String
-    let reminderColor: Color
-   
+    let currentItem: todoietemm
+    
     
     //MARK: Computed properties
     
     // Returns the button's user interface...
     var body: some View {
-        
-       
-        HStack {
-            
-            Image(systemName: "circle")
-                .foregroundColor(Color.blue)
-            
-            VStack (alignment: .leading) {
-                
-                // First layer
-                Text(reminder)
-                    .foregroundStyle(reminderColor)
-              
+        Label(
+            title: {
+                Text(currentItem.title)
+            }, icon: {
+                Image(systemName: currentItem.done == true ? "checkmark.circle": "circle")
             }
-        }
+        )
     }
 }
-
-#Preview {
-    ListView(reminder:"Call auto body shop", reminderColor: .black)
-}
+        
+        
+        #Preview {
+            List{
+                ItemView(currentItem: firstItemc)
+                ItemView(currentItem: secondItem)
+            }
+        }
+    
