@@ -23,7 +23,7 @@ struct ContentView: View {
     // Access the model context (required to additions, deletions, update, etc
     @Environment(\.modelContext)var modelContext
     // RThe list to-do items
-    @Query var todos: [todoietemm] = exampleItems
+    @Query var todos: [todoietemm] = []
     
     // MARK: Computed properties
     var body: some View {
@@ -87,7 +87,8 @@ struct ContentView: View {
 
 
 
-// #Preview {
-//    ContentView()
-// }
+#Preview {
+    ContentView()
+        .modelContainer(todoietemm.preview)
+}
 
